@@ -1,0 +1,80 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+
+    <record model="ir.ui.view" id="sales_customed_sale_order_form_inherit">
+      <field name="name">sales_customed_sale_order_form_inherit</field>
+      <field name="model">sale.order</field>
+      <field name="inherit_id" ref="sale.view_order_form"/>
+      <field name="arch" type="xml">
+        <xpath expr="//button[@name='action_confirm']" position="after">
+          <button name="action_test" string="Test" type="object" data-hotkey="l"/>
+        </xpath>
+      </field>
+    </record>
+
+
+     <record model="ir.ui.view" id="sales_customed_res_partner_form">
+      <field name="name">sales_customed_res_partner_form</field>
+      <field name="model">res.partner</field>
+      <field name="inherit_id" ref="base.view_partner_form"/>
+      <field name="arch" type="xml">
+        <xpath expr="//field[@name='image_1920']" position="after">
+          <button name="action_test" string="Test" type="object" data-hotkey="l"/>
+        </xpath>
+      </field>
+    </record>
+
+      <record model="ir.ui.view" id="sales_customed_product_template_form">
+      <field name="name">sales_customed_product_template_form</field>
+      <field name="model">product.template</field>
+      <field name="inherit_id" ref="product.product_template_only_form_view"/>
+      <field name="arch" type="xml">
+        <xpath expr="//field[@name='detailed_type']" position="before">
+          <button name="action_test" string="Test" type="object" data-hotkey="l"/>
+        </xpath>
+      </field>
+    </record>
+    <!-- actions opening views on models -->
+<!--
+    <record model="ir.actions.act_window" id="sales_customed.action_window">
+      <field name="name">sales_customed window</field>
+      <field name="res_model">sales_customed.sales_customed</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+-->
+
+    <!-- server action to the one above -->
+<!--
+    <record model="ir.actions.server" id="sales_customed.action_server">
+      <field name="name">sales_customed server</field>
+      <field name="model_id" ref="model_sales_customed_sales_customed"/>
+      <field name="state">code</field>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "tree,form",
+          "res_model": model._name,
+        }
+      </field>
+    </record>
+-->
+
+    <!-- Top menu item -->
+<!--
+    <menuitem name="sales_customed" id="sales_customed.menu_root"/>
+-->
+    <!-- menu categories -->
+<!--
+    <menuitem name="Menu 1" id="sales_customed.menu_1" parent="sales_customed.menu_root"/>
+    <menuitem name="Menu 2" id="sales_customed.menu_2" parent="sales_customed.menu_root"/>
+-->
+    <!-- actions -->
+<!--
+    <menuitem name="List" id="sales_customed.menu_1_list" parent="sales_customed.menu_1"
+              action="sales_customed.action_window"/>
+    <menuitem name="Server to list" id="sales_customed" parent="sales_customed.menu_2"
+              action="sales_customed.action_server"/>
+-->
+  </data>
+</odoo>
