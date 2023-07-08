@@ -21,4 +21,5 @@ class product_template_inherit(models.Model):
         print("Internal Reference |", self.default_code)
         print("Barcode |", self.barcode)
 
+        print("HHELLO")
         #print("Product Tags |")
